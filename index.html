@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Заявка</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+      <script src="./main.js"></script>
+      <link href="./main.css" rel="stylesheet" />
+       
+      <head>
+<body ng-app="MortgageAppl" ng-controller="MortgageController">
+    <div class="container">
+	<div class="alert alert-primary" role="alert">
+		<h3>
+			Заявка на ипотеку
+		</h3>
+	</div>
+           
+    <form ng-submit="submitMortgage()">
+		<div class="form-group">
+			<label for="customer">Покупатель (ФИО)</label>
+			<input type="text" class="form-control" id="customer" ng-model="mortgageForm.customer">
+			<small id="customer" class="form-text text-muted">Введите Ваше ФИО полностью</small>
+		</div>
+		<div class="form-group">
+			<label for="passport">Паспорт</label>
+			<input type="text" class="form-control" id="passport" ng-model="mortgageForm.passport">
+			<small id="passport" class="form-text text-muted">Введите Ваши паспортные данные (серия и номер)</small>
+		</div>
+		<div class="form-group">
+			<label for="address">Адрес</label>
+			<input type="text" class="form-control" id="address" ng-model="mortgageForm.address">
+			<small id="address" class="form-text text-muted">Введите Ваши адрес</small>
+		</div>
+		<div class="form-group">
+			<label for="phon">Телефон</label>
+			<input type="text" class="form-control" id="phon" ng-model="mortgageForm.phon">
+			<small id="phon" class="form-text text-muted">Введите Ваши номер телефона для связи</small>
+		</div>
+		<div class="form-group">
+			<label for="summa">Сумма</label>
+			<input type="text" class="form-control" id="summa" ng-model="mortgageForm.summa">
+			<small id="summa" class="form-text text-muted">Введите сумму стоимости объекта</small>
+		</div>
+		<div class="form-group">
+			<label for="duration">Срок</label>
+			<input type="text" class="form-control" id="duration" ng-model="mortgageForm.duration">
+			<small id="duration" class="form-text text-muted">Укажите желаемую длительность ипотеки</small>
+		</div>
+		<div class="form-group">
+			<label for="subject">Объект ипотеки</label>
+			<input type="text" class="form-control" id="subject" ng-model="mortgageForm.subject">
+			<small id="subject" class="form-text text-muted">Укажите объект ипотеки и его адрес</small>
+		</div>
+		<div class="form-group">
+			<label for="supplier">Продавец</label>
+			<input type="text" class="form-control" id="supplier" ng-model="mortgageForm.supplier">
+			<small id="supplier" class="form-text text-muted">Заполниете данные продавца (название организации или ФИО частного лица)</small>
+		</div>
+		<div class="form-group">
+			<label for="supAddress">Адрес продавеца</label>
+			<input type="text" class="form-control" id="supAddress" ng-model="mortgageForm.supAddress">
+			<small id="supAddress" class="form-text text-muted">Укажите адрес продавца</small>
+		</div>
+		<div class="form-group">
+			<label for="inn">ИНН продавеца</label>
+			<input type="text" class="form-control" id="inn" ng-model="mortgageForm.inn">
+			<small id="inn" class="form-text text-muted">Укажите ИНН продавца (10 цифр для юридического лица и 12 цифр для физического лица)</small>
+		</div>
+	  
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+      
+    </div> 
+   </body>
+</html>
