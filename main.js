@@ -22,13 +22,14 @@ app.controller("MortgageController", function($scope, $http) {
  
    
     // HTTP POST  
-    // Call: http://localhost:8080/mortgage
+   
     $scope.submitMortgage = function() {
  
         var method = "";
         var url = "";
         method = "POST";
-        url = ' http://localhost:8088/mortgage';
+		//здесь необходимо указать нужный URL
+        url = 'http://192.168.1.167:8088/mortgage';
         
  
         $http({
