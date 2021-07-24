@@ -59,7 +59,8 @@ app.controller("MortgageController", function($scope, $http) {
 		else{
 			alert(data.message);
 		}
-        //_clearFormData();
+        
+		//_clearFormData();
 		
     }
  
