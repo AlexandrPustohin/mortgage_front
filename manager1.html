@@ -16,19 +16,19 @@
 			Менеджер заявок на ипотеку
 		</h3>
 	</div>
-           
-	<table border="0">
-		<tr>
-			<th> Карточка</th>
-		</tr>
-		<tr ng-repeat="motrgage in mortgages">
-				<div>№ {{mortgage.id}}</div>
+    <form ng-repeat="mortgage in mortgages">
+				
+				<div class="form-group">
+					<label for="id">№</label>
+					<input type="number" class="form-control" id="customer" ng-model="mortgage.id" disabled>
+				</div>
+							
 				<div class="d-flex d-flex justify-content-around">
-					<td>
-						<div class="p-2 flex-fill col -md-4">
+					
+					<div class="p-2 flex-fill col -md-4">
 							<div class="form-group">
 								<label for="customer">Покупатель (ФИО)</label>
-								<input type="text" class="form-control" text={{mortgage.customer}} id="customer" ng-model="mortgageForm.customer">
+								<input type="text" class="form-control" id="customer" ng-model="mortgage.customer">
 							</div>
 							<div class="form-group">
 								<label for="passport">Паспорт</label>
@@ -42,18 +42,16 @@
 								<label for="phon">Телефон</label>
 								<input type="text" class="form-control" id="phon" ng-model="mortgage.phon">
 							</div>
-						</div>
-					</td>
-					<td>
+					</div>
 					<div class="p-2 flex-fill col -md-4">
 						<div class="form-group">
 							<div class="form-group">
 								<label for="summa">Сумма</label>
-								<input type="text" class="form-control" id="summa" ng-model="mortgage.summa">
+								<input type="number" class="form-control" id="summa" ng-model="mortgage.summa">
 							</div>
 							<div class="form-group">
 								<label for="duration">Срок</label>
-								<input type="text" class="form-control" id="duration" ng-model="mortgage.duration">
+								<input type="number" class="form-control" id="duration" ng-model="mortgage.duration">
 							</div>
 							<div class="form-group">
 								<label for="subject">Объект ипотеки</label>
@@ -61,8 +59,7 @@
 							</div>
 						</div>
 					</div>
-					</td>
-					<td>
+					
 					<div class="p-2 flex-fill col -md-4">
 						<div class="form-group">
 							<label for="supplier">Продавец</label>
@@ -77,12 +74,14 @@
 							<input type="text" class="form-control" id="inn" ng-model="mortgage.inn">
 						</div>
 					</div>
-					</td>
-				</div>
 					
-		</tr>
-	</table>
-      
-    </div> 
+					<a ng-click="editMortgage(mortgage)" class="btn btn-info">Edit</a>
+           
+					<a ng-click="deleteMortgage(mortgage)" class="btn btn-danger">Delete</a>
+           
+				
+				
+		
+	 </form> 
    </body>
 </html>
