@@ -5,7 +5,7 @@ app.controller("MortgageManagerController", function($scope, $http) {
  
  
     $scope.mortgages = [];
-    $scope.mortgage = {
+    $scope.mortgageForm = {
 		id:0,
         customer: "",
 		passport: "",
@@ -27,22 +27,23 @@ app.controller("MortgageManagerController", function($scope, $http) {
 	// HTTP DELETE- delete mortgage by Id
 	// 
     $scope.deleteMortgage = function(mortgage) {
-        $http({
+        _creatFormData(mortgage);
+		$http({
             method: 'DELETE',
-            url: '/mortgage/' + mortgage.id
-        }).then(_success, _error);
+            url: 'http://localhost:8088/mortgage/' + $scope.mortgageForm.id
+        }).then(_successDelete, _error);
     };
  
     // In case of edit
     $scope.editMortgage = function(mortgage) {
         method = "PUT";
         url = 'http://localhost:8088/mortgage/';
-        console.log($scope.mortage);		
+        _creatFormData(mortgage)		
 		
         $http({
             method: method,
             url: url,
-            data: angular.toJson($scope.mortgage),
+            data: angular.toJson($scope.mortgageForm),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -66,7 +67,21 @@ app.controller("MortgageManagerController", function($scope, $http) {
             }
         );
     }
-	
+	function _successDelete(res) {
+        _refreshMortgageData();
+		var data = res.data;
+        var status = res.status;
+        var header = res.header;
+        var config = res.config;
+		if ( typeof data.message== "undefined" ) 
+			alert("Заявка удалена.");
+		else{
+			alert(data.message);
+		}
+        
+		//_clearFormData();
+		
+    }
 	
 	
     function _success(res) {
@@ -95,16 +110,33 @@ app.controller("MortgageManagerController", function($scope, $http) {
  
     // Clear the form
     function _clearFormData() {
-        $scope.mortgageForm.empName = "";
+		
+        $scope.mortgageForm.id = 0;
 		customer= "";
 		passport= "";
         address = "";
         phon= "";
-        summa= "";
-        duration= ""; 
+        summa= 0;
+        duration= 0; 
         subject= "";
         supplier= "";
         supAddress= "";
         inn= ""
+    };
+	
+	// Clear the form
+    function _creatFormData(mortgage) {
+		_clearFormData();
+        $scope.mortgageForm.id = mortgage.id;
+		$scope.mortgageForm.customer= mortgage.customer;
+		$scope.mortgageForm.passport= mortgage.passport;
+        $scope.mortgageForm.address = mortgage.address;
+        $scope.mortgageForm.phon= mortgage.phon;
+        $scope.mortgageForm.summa= mortgage.summa;
+        $scope.mortgageForm.duration= mortgage.duration; 
+        $scope.mortgageForm.subject= mortgage.subject;
+        $scope.mortgageForm.supplier= mortgage.supplier;
+        $scope.mortgageForm.supAddress= mortgage.supAddress;
+        $scope.mortgageForm.inn= mortgage.inn
     };
 });
