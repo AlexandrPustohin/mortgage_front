@@ -9,7 +9,7 @@ app.controller("MortgageController", function($scope, $http) {
         customer: "Пустохин А Е",
 		passport: "19 02 730670",
         address: "Карла-Маркса 113 б",
-        phon: "89211400904",
+        phone: "89211400904",
         summa: "5000000",
         duration: "10",
         subject: "Квартира на Ленинградской 150",
@@ -29,7 +29,7 @@ app.controller("MortgageController", function($scope, $http) {
         var url = "";
         method = "POST";
 		//здесь необходимо указать нужный URL
-        url = 'http://192.168.1.167:8088/mortgage';
+        url = 'http://localhost:8088/mortgage';
         
  
         $http({
@@ -78,7 +78,7 @@ app.controller("MortgageController", function($scope, $http) {
 		customer= "";
 		passport= "";
         address = "";
-        phon= "";
+        phone= "";
         summa= "";
         duration= ""; 
         subject= "";

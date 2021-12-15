@@ -10,7 +10,7 @@ app.controller("MortgageManagerController", function($scope, $http) {
         customer: "",
 		passport: "",
         address: "",
-        phon: "",
+        phone: "",
         summa: 0,
         duration: 0,
         subject: "",
@@ -115,7 +115,7 @@ app.controller("MortgageManagerController", function($scope, $http) {
 		customer= "";
 		passport= "";
         address = "";
-        phon= "";
+        phone= "";
         summa= 0;
         duration= 0; 
         subject= "";
@@ -131,7 +131,7 @@ app.controller("MortgageManagerController", function($scope, $http) {
 		$scope.mortgageForm.customer= mortgage.customer;
 		$scope.mortgageForm.passport= mortgage.passport;
         $scope.mortgageForm.address = mortgage.address;
-        $scope.mortgageForm.phon= mortgage.phon;
+        $scope.mortgageForm.phone= mortgage.phone;
         $scope.mortgageForm.summa= mortgage.summa;
         $scope.mortgageForm.duration= mortgage.duration; 
         $scope.mortgageForm.subject= mortgage.subject;
